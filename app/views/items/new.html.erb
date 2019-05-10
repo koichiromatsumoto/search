@@ -6,6 +6,7 @@
 <body>
 	<%= form_for(@item) do |f| %>
 	<h2>商品登録</h2>
+	<!-- 商品名登録 -->
 	    <%= f.label :item_name, "商品名" %>
 		<%= f.text_field :item_name, class:"item_name" %><br>
 		
@@ -21,6 +22,7 @@
 	    <%= f.label :genre_id, "ジャンル選択" %>
 		<%= f.collection_select :genre_id, Genre.all, :id, :genre_name %><br>
 
+    <!-- 売上数登録（実際には購入数から引っ張ってくるけど簡易化） -->
 	    <%= f.label :sales, "売上数" %>
 	    <%= f.text_field :sales, class:"sales" %><br>
     
@@ -30,8 +32,11 @@
 
     <p></p>
 
-    <%= link_to "一覧へ", items_path %>
+    <%= link_to "検索へ", items_path %><br>
 	<%= link_to "artist登録へ", new_artist_path %>
+	<%= link_to "artist一覧へ", artists_path %><br>
 	<%= link_to "label登録へ", new_label_path %>
+	<%= link_to "label一覧へ", labels_path %><br>
 	<%= link_to "genre登録へ", new_genre_path %>
+	<%= link_to "genre一覧へ", genres_path %>
 </body>

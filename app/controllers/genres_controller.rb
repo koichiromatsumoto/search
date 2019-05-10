@@ -1,5 +1,8 @@
 class GenresController < ApplicationController
 
+
+# ジャンル登録用
+
     def new
     	@genre = Genre.new
     end
@@ -8,6 +11,16 @@ class GenresController < ApplicationController
     	@genre = Genre.new(genre_params)
     	@genre.save
     	redirect_to root_path
+    end
+
+    def index
+        @genres = Genre.all
+    end
+
+    def destroy
+        @genre = Genre.find(params[:id])
+        @genre.destroy
+        redirect_to genres_path
     end
 
     private

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>artist_id</th>
+				<th>artist_name</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @artists.each do |artist| %>
+			<tr>
+				<td><%= artist.id %></td>
+				<td><%= artist.artist_name %></td>
+				<td><%= link_to "削除", artist_path(artist.id), method: :delete %>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+
+	<%= link_to "商品登録へ", root_path %>
+	<%= link_to "artist登録へ", new_artist_path %>
+	<%= link_to "label登録へ", new_label_path %>
+	<%= link_to "genre登録へ", new_genre_path %>
+
+</body>

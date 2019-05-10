@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>label_id</th>
+				<th>label_name</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @labels.each do |label| %>
+			<tr>
+				<td><%= label.id %></td>
+				<td><%= label.label_name %></td>
+				<td><%= link_to "削除", label_path(label.id), method: :delete %>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+
+	<%= link_to "商品登録へ", root_path %>
+	<%= link_to "artist登録へ", new_artist_path %>
+	<%= link_to "label登録へ", new_label_path %>
+	<%= link_to "genre登録へ", new_genre_path %>
+
+</body>
