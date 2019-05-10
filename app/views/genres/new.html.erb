@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+	<%= form_for(@genre) do |f| %>
+	<p>genre_name</p><%= f.text_field :genre_name, class:"genre_name" %>
+    <%= f.submit "登録" %>
+    <% end %>
+
+    <%= link_to "商品登録へ", root_path %>
+    <%= link_to "一覧へ", items_path %>
+</body>

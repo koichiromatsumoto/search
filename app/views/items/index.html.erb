@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+	
+	<%= search_form_for @q, html: {class:"searchbox"}, url: items_path do |f| %>
+
+	<%= f.label :genre_id_eq, 'ジャンル' %>
+	<%= f.collection_select :genre_id_eq, @genres, :id, :genre_name, :include_blank =>'指定なし' %>
+
+    <%= f.label :item_name_cont, '商品名' %>
+	<%= f.search_field :item_name_cont %>
+    
+    <%= f.submit "検索" %>
+  <% end %>
+
+
+	<table>
+		<thead>
+			<tr>
+				<th><%= sort_link(@q, :id, "id") %></th>
+				<th><%= sort_link(@q, :item_name, "item_name") %></th>
+				<th><%= sort_link(@q, :artist_id, "artist_name") %></th>
+				<th><%= sort_link(@q, :label_id, "label_name") %></th>
+				<th><%= sort_link(@q, :genre_id, "genre_name") %></th>
+				<th><%= sort_link(@q, :sales, "sales") %></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @items.each do |item| %>
+			<tr>
+				<td><%= item.id %></td>
+				<td><%= item.item_name %></td>
+				<td><%= item.artist.artist_name %></td>
+				<td><%= item.label.label_name %></td>
+				<td><%= item.genre.genre_name %></td>
+				<td><%= item.sales %></td>
+				<td><%= link_to "削除", item_path(item.id), method: :delete %>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<%= link_to "商品登録へ", root_path %>
+	<%= link_to "artist登録へ", new_artist_path %>
+	<%= link_to "label登録へ", new_label_path %>
+	<%= link_to "genre登録へ", new_genre_path %>
+</body>

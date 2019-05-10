@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+	<%= form_for(@item) do |f| %>
+	<h2>商品登録</h2>
+	    <%= f.label :item_name, "商品名" %>
+		<%= f.text_field :item_name, class:"item_name" %><br>
+		
+	<!-- アーティスト選択 -->
+		<%= f.label :artist_id, "アーティスト選択" %>
+		<%= f.collection_select :artist_id, Artist.all, :id, :artist_name %><br>
+
+	<!-- レーベル選択	 -->
+		<%= f.label :label_id, "レーベル選択" %>
+		<%= f.collection_select :label_id, Label.all, :id, :label_name %><br>
+
+	<!-- ジャンル選択 -->
+	    <%= f.label :genre_id, "ジャンル選択" %>
+		<%= f.collection_select :genre_id, Genre.all, :id, :genre_name %><br>
+
+	    <%= f.label :sales, "売上数" %>
+	    <%= f.text_field :sales, class:"sales" %><br>
+    
+    <p></p>
+    <%= f.submit "登録" %>
+    <% end %>
+
+    <p></p>
+
+    <%= link_to "一覧へ", items_path %>
+	<%= link_to "artist登録へ", new_artist_path %>
+	<%= link_to "label登録へ", new_label_path %>
+	<%= link_to "genre登録へ", new_genre_path %>
+</body>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+	<%= form_for(@label) do |f| %>
+	<p>label_name</p><%= f.text_field :label_name, class:"label_name" %>
+    <%= f.submit "登録" %>
+    <% end %>
+
+    <%= link_to "商品登録へ", root_path %>
+    <%= link_to "一覧へ", items_path %>
+</body>
