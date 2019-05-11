@@ -13,7 +13,8 @@ class ArtistsController < ApplicationController
     end
 
     def index
-        @artists = Artist.all
+        @artists = Artist.order("yomi")
+
     end
 
     def destroy
@@ -24,7 +25,7 @@ class ArtistsController < ApplicationController
 
     private
     def artist_params
-    	params.require(:artist).permit(:artist_name, items_attributes: [:item_name, :sales])
+    	params.require(:artist).permit(:artist_name, :yomi, items_attributes: [:item_name, :sales])
     end
 
 end

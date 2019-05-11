@@ -12,6 +12,7 @@
 			<tr>
 				<th>artist_id</th>
 				<th>artist_name</th>
+				<th>yomi</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -20,6 +21,7 @@
 			<tr>
 				<td><%= artist.id %></td>
 				<td><%= artist.artist_name %></td>
+				<td><%= artist.yomi %></td>
 				<td><%= link_to "削除", artist_path(artist.id), method: :delete %>
 			</tr>
 			<% end %>

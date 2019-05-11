@@ -6,6 +6,7 @@
 <body>
 	<%= form_for(@artist) do |f| %>
 	<p>artist_name</p><%= f.text_field :artist_name, class:"artist_name" %>
+	<p>読み仮名</p><%= f.text_field :yomi, class:"yomi" %>
     <%= f.submit "登録" %>
     <% end %>
 
