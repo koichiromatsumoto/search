@@ -9,21 +9,6 @@
 	<!-- -----検索フォーム----- -->
 
 
-	<%= search_form_for @search, url:items_path do |f| %>
-    <!-- => ヘルパーメソッドをsearch_form_forとして@searchを引数とすると検索フォームができる -->
-
-		<%= f.label :genre_id_eq, 'ジャンル' %>
-		<%= f.collection_select :genre_id_eq, @genres, :id, :genre_name, :include_blank =>'指定なし' %>
-		<!-- => collection_selectがプルダウン選択のメソッドで、genre_id_eqでgenre_idが全く同じもののみ検索されるようにしてくれる(equalってこと) -->
-
-	    <%= f.label :item_name_cont, '商品名' %>
-		<%= f.search_field :item_name_cont %>
-		<!-- => search_fieldが検索フォームのメソッドで、item_name_contでitem_nameの部分一致も検索されるようにしてくれる(containってこと) -->
-	    
-	    <%= f.submit "検索" %>
-    <% end %>
-
-
     <!-- -----ここまで----- -->
 
 
@@ -33,7 +18,7 @@
 				<th><%= sort_link(@search, :id, "id") %></th>
 				<!-- => sort_linkでソート機能を追加できるっぽい（idのところをクリックするとid昇順、もう一回クリックするとid降順みたいな） -->
 				<th><%= sort_link(@search, :item_name, "item_name") %></th>
-				<th><%= sort_link(@search, :artist_id, "artist_name") %></th>
+				<th><%= sort_link(@search, :artist_yomi, "artist_name") %></th>
 				<th><%= sort_link(@search, :label_id, "label_name") %></th>
 				<th><%= sort_link(@search, :genre_id, "genre_name") %></th>
 				<th><%= sort_link(@search, :sales, "sales") %></th>
@@ -41,7 +26,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @items.each do |item| %>
+			<% @search_items.each do |item| %>
 			<!-- => こっちは検索結果を表示したいので@itemsを引数として渡す -->
 			<tr>
 				<td><%= item.id %></td>

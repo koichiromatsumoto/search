@@ -3,13 +3,13 @@ class ArtistsController < ApplicationController
 # アーティスト登録用
 
     def new
-    	@artist = Artist.new
+        @artist = Artist.new
     end
 
     def create
-    	@artist = Artist.new(artist_params)
-    	@artist.save
-    	redirect_to root_path
+        @artist = Artist.new(artist_params)
+        @artist.save
+        redirect_to root_path
     end
 
     def index
@@ -25,7 +25,7 @@ class ArtistsController < ApplicationController
 
     private
     def artist_params
-    	params.require(:artist).permit(:artist_name, :yomi, items_attributes: [:item_name, :sales])
+        params.require(:artist).permit(:artist_name, :yomi, items_attributes: [:item_name, :sales])
     end
 
 end

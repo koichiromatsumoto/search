@@ -11,7 +11,17 @@
 
   <body>
     <header>
+      <%= search_form_for @search, url: items_path do |f| %>
+        <%= f.label :genre_id_eq, 'ジャンル' %>
+        <%= f.collection_select :genre_id_eq, @genres, :id, :genre_name, :include_blank =>'指定なし' %>
+    <!-- => collection_selectがプルダウン選択のメソッドで、genre_id_eqでgenre_idが全く同じもののみ検索されるようにしてくれる(equalってこと) -->
+
+        <%= f.label :artist_artist_name_or_item_name_cont, '商品名' %>
+        <%= f.search_field :artist_artist_name_or_item_name_cont %>
+    <!-- => search_fieldが検索フォームのメソッドで、item_name_contでitem_nameの部分一致も検索されるようにしてくれる(containってこと) -->
       
+        <%= f.submit "検索" %>
+      <% end %>
   
       
     </header>
