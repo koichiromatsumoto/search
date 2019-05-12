@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+検索フォーム実装機能
 
-Things you may want to cover:
+・ジャンルフィルターをかけた状態で検索できる
+・商品名とアーティスト名の両方で検索が引っかかるようにする
+・部分一致でも検索に引っかかるようにする
+・ヘッダーに検索フォームを設ける
+・検索結果は商品の登録順（item_id順)で表示される
+・ソートの変更ができる
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
